@@ -271,18 +271,18 @@ private[jackson] class PlaySerializers(jsonSettings: JsonConfig) extends Seriali
   }
 }
 
-private[json] object JacksonJson {
+private[play] object JacksonJson {
   private var instance = JacksonJson(JsonConfig.settings)
 
   /** Overrides the config. */
-  private[json] def setConfig(jsonConfig: JsonConfig): Unit = {
+  private[play] def setConfig(jsonConfig: JsonConfig): Unit = {
     instance = JacksonJson(jsonConfig)
   }
 
-  private[json] def get: JacksonJson = instance
+  private[play] def get: JacksonJson = instance
 }
 
-private[json] case class JacksonJson(jsonConfig: JsonConfig) {
+private[play] case class JacksonJson(jsonConfig: JsonConfig) {
   private val jsonFactory = new JsonFactoryBuilder()
     .streamReadConstraints(jsonConfig.streamReadConstraints)
     .build()
