@@ -188,7 +188,8 @@ object JsonConfig {
    */
   val preserveZeroDecimalProperty: String = "play.json.serializer.preserveZeroDecimal"
 
-  private val playJsonConfig = ConfigFactory.load()
+  private val playJsonConfig = ConfigFactory
+    .load()
     .getConfig("play.json.jackson")
 
   private[json] def loadScaleLimit: Int = prop(scaleLimitProperty, defaultScaleLimit)(_.toInt)
