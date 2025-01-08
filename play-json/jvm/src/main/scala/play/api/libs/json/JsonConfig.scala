@@ -188,7 +188,7 @@ object JsonConfig {
    */
   val preserveZeroDecimalProperty: String = "play.json.serializer.preserveZeroDecimal"
 
-  private val playJsonConfig = ConfigFactory
+  private[json] val playJsonConfig = ConfigFactory
     .load()
     .getConfig("play.json.jackson")
 
