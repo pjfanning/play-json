@@ -4,7 +4,7 @@
 
 package play.api.libs.json
 
-import com.fasterxml.jackson.core.{StreamReadConstraints, StreamWriteConstraints}
+import com.fasterxml.jackson.core.{ StreamReadConstraints, StreamWriteConstraints }
 import com.typesafe.config.ConfigFactory
 import play.api.libs.json.JsonConfig.defaultMaxPlain
 import play.api.libs.json.JsonConfig.defaultMinPlain
@@ -242,16 +242,14 @@ object JsonConfig {
   def apply(
       bigDecimalParseConfig: BigDecimalParseConfig,
       bigDecimalSerializerConfig: BigDecimalSerializerConfig
-  ): JsonConfig = apply(bigDecimalParseConfig,
-    bigDecimalSerializerConfig, defaultStreamReadConstraints)
+  ): JsonConfig = apply(bigDecimalParseConfig, bigDecimalSerializerConfig, defaultStreamReadConstraints)
 
   def apply(
       bigDecimalParseConfig: BigDecimalParseConfig,
       bigDecimalSerializerConfig: BigDecimalSerializerConfig,
       streamReadConstraints: StreamReadConstraints
-  ): JsonConfig =apply(bigDecimalParseConfig,
-    bigDecimalSerializerConfig,
-    streamReadConstraints, defaultStreamWriteConstraints)
+  ): JsonConfig =
+    apply(bigDecimalParseConfig, bigDecimalSerializerConfig, streamReadConstraints, defaultStreamWriteConstraints)
 
   def apply(
       bigDecimalParseConfig: BigDecimalParseConfig,
@@ -259,8 +257,7 @@ object JsonConfig {
       streamReadConstraints: StreamReadConstraints,
       streamWriteConstraints: StreamWriteConstraints
   ): JsonConfig =
-    JsonConfigImpl(bigDecimalParseConfig, bigDecimalSerializerConfig,
-      streamReadConstraints, streamWriteConstraints)
+    JsonConfigImpl(bigDecimalParseConfig, bigDecimalSerializerConfig, streamReadConstraints, streamWriteConstraints)
 
   private[json] def parseMathContext(key: String): MathContext = sys.props.get(key).map(_.toLowerCase) match {
     case Some("decimal128") => MathContext.DECIMAL128
