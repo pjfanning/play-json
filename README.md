@@ -25,6 +25,7 @@ The biggest risk that your JSON inputs will not parse are:
 
 * There are no [Play](https://github.com/playframework/playframework) releases that support versions of Jackson above 2.14
 * [StreamReadConstraints](https://www.javadoc.io/static/com.fasterxml.jackson.core/jackson-core/2.17.3/com/fasterxml/jackson/core/StreamReadConstraints.html) is the biggest issue but if the new Jackson defaults are ok and you are in a position to test the upgrade before you go to production, then you should be ok to just upgrade Jackson libs
+* Beware that jackson-module-scala has a check that validates that version of jackson-databind has a compatible version (based on the minor version in semantic versioning). You should use the [jackson-bom](https://mvnrepository.com/artifact/com.fasterxml.jackson/jackson-bom) if your build tool supports BOMs. sbt does not support BOMs (unless you use the [here-sbt-bom](https://github.com/heremaps/here-sbt-bom) plugin). You can use use dependencyTree checks using your build tool to find mismatches between Jackson lib versions and add explicit dependencies on any lib that has an out of date dependency.
 * You can use this fork of play-json and modify your application.conf if you need to add adjust the StreamReadConstraints settings
 * In some use cases, Play uses its own Jackson ObjectMapper and not play-json. You may need to inject an updated ObjectMapper if you are hitting constraint exceptions. This needs to be done at JVM startup before you initiate Play.
 
