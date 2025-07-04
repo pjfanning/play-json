@@ -18,7 +18,7 @@ val isScala3 = Def.setting {
 
 def specs2(scalaVersion: String) =
   Seq("core", "junit").map { n =>
-    ("org.specs2" %% s"specs2-$n" % "4.20.9") % Test
+    ("org.specs2" %% s"specs2-$n" % "4.21.0") % Test
   }
 
 val jacksonDatabindVersion = "2.19.1"
@@ -247,7 +247,7 @@ lazy val `play-jsonJVM` = `play-json`.jvm
         else
           specs2(scalaVersion.value)
       } ++ Seq(
-        "org.playframework" %% "play-functional" % "3.0.4",
+        "org.playframework" %% "play-functional" % "3.0.5",
         "com.typesafe"       % "config"          % "1.4.3",
         "ch.qos.logback"     % "logback-classic" % "1.3.15" % Test
       ),
