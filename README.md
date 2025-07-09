@@ -7,6 +7,8 @@ Play JSON is a powerful Scala JSON library, originally developed by the Play tea
 
 This is a fork of the JVM version of [play-json](https://github.com/playframework/play-json) that supports Jackson 2.17 and above. Read the core play-json docs if you need to see how the code works.
 
+The playframework/play-json 3.1.0-M2 release supports Jackson 2.19.1 and contains most of the changes in this fork. So, I would recommend that release over the ones from this fork.
+
 The differences from the core play-json are pretty small.
 
 * only the JVM version of the main play-json lib is published here - for other libs use the playframework ones
